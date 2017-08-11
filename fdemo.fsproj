@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="src/*.fs" />
+    <Compile Include="src/Demo.fs "/>
+    <Compile Include="src/Program.fs" />
   </ItemGroup>
 </Project>
