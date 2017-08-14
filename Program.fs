@@ -2,6 +2,8 @@
 
 open System
 open Demo
+open XPrint
+open Suave
 
 type Sum = Sum of int
 
@@ -19,4 +21,5 @@ let main argv =
   printf "Ingrese su nombre: "
   let name = Console.ReadLine ()
   printfn "hola mundo %s" name
+  startWebServer defaultConfig (Successful.OK "Hello World!")
   0 // return an integer exit code 

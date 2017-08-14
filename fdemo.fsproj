@@ -4,7 +4,12 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="src/Demo.fs "/>
-    <Compile Include="src/Program.fs" />
+    <Compile Include="Demo.fs "/>
+    <Compile Include="XPrint.fs" />
+    <Compile Include="Say.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Suave" Version="2.1.1"/>
   </ItemGroup>
 </Project>
