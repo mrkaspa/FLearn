@@ -5,8 +5,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Demo.fs "/>
-    <Compile Include="XPrint.fs" />
     <Compile Include="Say.fs" />
+    <Compile Include="XPrint.fs "/>
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
