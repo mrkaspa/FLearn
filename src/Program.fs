@@ -9,8 +9,8 @@ open Suave
 type Sum = Sum of int
 
 let writeToFile (date: DateTime) filename text =
-    let path = sprintf "%s-%O.txt" filename (date.ToString "yyMMdd")
-    File.WriteAllText (path, text)    
+    let path = sprintf "%s-%O.txt" filename (date.ToString("yyMMdd"))
+    File.WriteAllText(path, text)    
 
 [<EntryPoint>]
 let main argv =
@@ -27,5 +27,6 @@ let main argv =
     let name = Console.ReadLine ()
     printfn "hola mundo %s" name
     printHello ()
-    startWebServer defaultConfig (Successful.OK "Hello World!")
     0 // return an integer exit code 
+
+// startWebServer defaultConfig (Successful.OK "Hello World!")
