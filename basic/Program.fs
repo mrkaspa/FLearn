@@ -1,15 +1,9 @@
 ﻿module Program
 
 open System
-open System.Threading
 open System.IO
 open Demo
 open XPrint
-open Suave
-open Suave.Filters
-open Suave.Operators
-open Suave.DotLiquid
-open DotLiquid
 
 type Sum = Sum of int
 
@@ -33,25 +27,12 @@ let main1 argv =
     printHello ()
     0 // return an integer exit code 
 
-type Model =
-  { title : string }
-
-setTemplatesDir "./../templates"
-
-let o = { title = "Hello World" }
-
-let app =
-  choose
-    [ GET >=> choose
-        [ path "/" >=> page "my_page.liquid" o ]]
+type User(name : String, age : int) =
+    member this.Name = name
+    member this.Age = age
 
 [<EntryPoint>]
-let main argv =
-    let cts = new CancellationTokenSource()
-    let conf = { defaultConfig with cancellationToken = cts.Token }
-    let listening, server = startWebServerAsync defaultConfig app
-    Async.Start(server, cts.Token)
-    printfn "Make requests now"
-    Console.ReadKey true |> ignore
-    cts.Cancel()
+let main args =
+    let u = User("Michel", 30)
+    printfn "The user %s has %d yo" u.Name u.Age
     0
