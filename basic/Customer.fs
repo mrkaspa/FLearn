@@ -10,5 +10,5 @@ let where filter ls =
 
 let filterGt36 cust = cust.Age > 36
 
-let filterCustomers: (seq<Customer> -> seq<Customer>) = 
+let filterCustomers: (seq<Customer> -> seq<Customer>) =
     where filterGt36

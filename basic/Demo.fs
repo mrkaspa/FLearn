@@ -6,7 +6,7 @@ type Cmp =
     | LT
 
 type Listi<'a> = List<'a>
- 
+
 let mapi (ls: Listi<int>) =
     match ls with
         | [] -> [-1]

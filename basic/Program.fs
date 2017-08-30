@@ -25,7 +25,7 @@ let main1 argv =
     let name = Console.ReadLine ()
     printfn "hola mundo %s" name
     printHello ()
-    0 // return an integer exit code 
+    0 // return an integer exit code
 
 type User(name : String, age : int) =
     member this.Name = name

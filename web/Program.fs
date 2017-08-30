@@ -13,7 +13,7 @@ type Model =
 
 setTemplatesDir "./templates"
 
-let o = 
+let o =
     { title = "Hello World" }
 
 let app =
