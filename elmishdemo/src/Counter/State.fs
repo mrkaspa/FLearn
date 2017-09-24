@@ -4,13 +4,13 @@ open Elmish
 open Types
 
 let init () : Model * Cmd<Msg> =
-  0, []
+    0, []
 
 let update msg model =
-  match msg with
-  | Increment ->
-      model + 1, []
-  | Decrement ->
-      model - 1, []
-  | Reset ->
+    match msg with
+    | Increment n ->
+      model + n, []
+    | Decrement n->
+      model - n, []
+    | Reset ->
       0, []
