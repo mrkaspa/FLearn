@@ -9,8 +9,8 @@ type Listi<'a> = List<'a>
 
 let mapi (ls: Listi<int>) =
     match ls with
-        | [] -> [-1]
-        | _ -> (List.map (fun x -> x + 1) ls)
+    | [] -> [-1]
+    | _ -> (List.map (fun x -> x + 1) ls)
 
 let reduci (ls: Listi<int>) =
     ls
