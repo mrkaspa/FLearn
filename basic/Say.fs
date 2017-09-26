@@ -10,3 +10,14 @@ let say salute short =
         printfn "%s" salute.Short
     else
         printfn "%s" salute.Long
+
+type Demo(name : string) =
+    member val Name = name
+        with get, set
+    member val FullName = name
+        with get, set
+
+let demo () =
+    let d = Demo "eoo"
+    d.Name <- "nu"
+    d
