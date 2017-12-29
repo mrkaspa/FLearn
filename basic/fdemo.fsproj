@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Rec.fs " />
     <Compile Include="Customer.fs " />
     <Compile Include="Demo.fs " />
     <Compile Include="Say.fs" />
