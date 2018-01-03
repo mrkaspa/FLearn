@@ -31,6 +31,16 @@ type User(name : String, age : int) =
     member this.Name = name
     member this.Age = age
 
+module Singleton =
+    type Product internal () =
+        let mutable state = 0
+
+        member this.DoSomething() =
+            state <- state + 1
+            printfn "Doing something for the %i time" state
+
+    let Instance = Product()
+
 [<EntryPoint>]
 let main args =
     let u = User("Michel", 30)
