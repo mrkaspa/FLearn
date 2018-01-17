@@ -5,11 +5,11 @@ type Salute = {
     Long: string
 }
 
-let say salute short =
-    if short then
-        printfn "%s" salute.Short
+let say {Short=short; Long=long} isShort =
+    if isShort then
+        printfn "%s" short
     else
-        printfn "%s" salute.Long
+        printfn "%s" long
 
 type Demo(name : string) =
     member val Name = name
