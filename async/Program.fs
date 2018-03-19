@@ -1,27 +1,21 @@
-﻿// Learn more about F# at http://fsharp.org
-
-open System
+﻿open System
 
 let random = Random()
 
 let pickNumber () = async { return random.Next(10) }
 
 let duration f =
-    let timer = Diagnostics.Stopwatch()
-    timer.Start()
-    let returnValue = f ()
-    printfn "Elapsed Time: %d" timer.ElapsedMilliseconds
-    returnValue
+    let timer = DateTime.Now
+    f ()
+    let now = DateTime.Now
+    printfn "Elapsed Time: %d msecs" (now.Subtract(timer).Milliseconds)
 
 let exec () =
-    let workflows = [ for _i in 1..50 -> pickNumber ()]
-    let numbers =
-        async {
-            let! res = Async.Parallel workflows
-            return List.ofArray res
-        } |> Async.RunSynchronously
-    printfn "Numbers = %A" numbers
-    ()
+    [1..50]
+    |> List.map (fun _m -> pickNumber ())
+    |> Async.Parallel
+    |> Async.RunSynchronously
+    |> ignore
 
 [<EntryPoint>]
 let main _argv =
