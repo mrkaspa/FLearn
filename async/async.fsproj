@@ -9,4 +9,8 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Hopac" Version="0.3.23" />
+  </ItemGroup>
+
 </Project>

@@ -1,8 +1,11 @@
 ﻿open System
+open Hopac
 
 let random = Random()
 
-let pickNumber () = async { return random.Next(10) }
+let pickNumberAsync () = async { return random.Next(10) }
+
+let pickNumberHopac () = job { return random.Next(10) }
 
 let duration f =
     let timer = DateTime.Now
@@ -10,14 +13,20 @@ let duration f =
     let now = DateTime.Now
     printfn "Elapsed Time: %d msecs" (now.Subtract(timer).Milliseconds)
 
-let exec () =
+let execAsync () =
     [1..50]
-    |> List.map (fun _m -> pickNumber ())
+    |> List.map (fun _m -> pickNumberAsync ())
     |> Async.Parallel
     |> Async.RunSynchronously
     |> ignore
 
+let execHopac () =
+    [1..50]
+    |> List.map (fun _m -> pickNumberHopac ())
+    |> Job. // run
+    |> ignore
+
 [<EntryPoint>]
 let main _argv =
-    duration exec
+    duration execAsync
     0 // return an integer exit code
