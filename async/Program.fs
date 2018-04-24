@@ -16,7 +16,7 @@ let duration tag f =
     printfn "Elapsed Time in %s: %d msecs" tag (now.Subtract(timer).Milliseconds)
 
 let execAsync () =
-    [1..50]
+    [1..500]
     |> List.map (fun _m -> pickNumberAsync ())
     |> Async.Parallel
     |> Async.RunSynchronously
@@ -24,13 +24,20 @@ let execAsync () =
 
 let execHopac () =
     let resCh = Ch<int>()
-    [1..50]
+    [1..500]
     |> List.map (fun _n -> pickNumberHopac resCh)
     |> Job.conIgnore
     |> start
 
-    for _i in [1..50] do
-        Ch.take resCh |> ignore
+    job {
+        let acc = ref 0
+        for _i in [1..500] do
+            let! valu = Ch.take resCh
+            acc := !acc + valu
+        return !acc
+    }
+    |> run
+    |> ignore
 
 [<EntryPoint>]
 let main _argv =
