@@ -8,8 +8,6 @@ open Suave.Operators
 open Suave.DotLiquid
 open Suave.Json
 open System.Runtime.Serialization
-open System.Net.Http
-open DotLiquid
 
 type Model =
     { title : string }
@@ -34,7 +32,7 @@ let app =
         [ GET >=> choose
             [ path "/" >=> page "my_page.liquid" o ]
           POST >=> choose
-            [ path "/json" >=> (mapJson (fun (a:Foo) -> { bar = a.foo })) ]]
+            [ path "/json" >=> (mapJson (fun (a: Foo) -> { bar = a.foo })) ] ]
 
 [<EntryPoint>]
 let main argv =
