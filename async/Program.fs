@@ -1,5 +1,6 @@
 ﻿open System
 open Hopac
+open Hopac.Extensions
 
 let random = Random()
 
@@ -31,10 +32,20 @@ let execHopac () =
     |> run
     |> ignore
 
+let createMatrix n =
+    Array2D.init n n (fun _ _ -> 0)
+
+let matrixRun () =
+      let mat = createMatrix 1000 in
+      let acc = ref 0
+      Array2D.iter (fun v -> acc := !acc + v) mat
+
 [<EntryPoint>]
 let main _argv =
     duration "Async 0" execAsync
     duration "Hopac 0" execHopac
+    duration "Matrix 0" matrixRun
     duration "Async 1" execAsync
     duration "Hopac 1" execHopac
+    duration "Matrix 1" matrixRun
     0 // return an integer exit code
