@@ -3,7 +3,9 @@ open Hopac
 
 let random = Random()
 
-let pickNumberAsync () = async { return random.Next(10) }
+let pickNumberAsync () = async {
+    return random.Next(10)
+}
 
 let pickNumberHopac () = job {
     return random.Next(10)
