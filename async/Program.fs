@@ -31,6 +31,8 @@ let execHopac () =
 
 [<EntryPoint>]
 let main _argv =
-    duration "Async" execAsync
-    duration "Hopac" execHopac
+    duration "Async 0" execAsync
+    duration "Hopac 0" execHopac
+    duration "Async 1" execAsync
+    duration "Hopac 1" execHopac
     0 // return an integer exit code
