@@ -32,13 +32,11 @@ let execHopac () =
     |> run
     |> ignore
 
-let createMatrix n =
-    Array2D.init n n (fun _ _ -> 0)
-
 let matrixRun () =
-      let mat = createMatrix 1000 in
-      let acc = ref 0
-      Array2D.iter (fun v -> acc := !acc + v) mat
+    let n = 1000
+    let mat = Array2D.init n n (fun _ _ -> 0)
+    let acc = ref 0
+    Array2D.iter (fun v -> acc := !acc + v) mat
 
 [<EntryPoint>]
 let main _argv =
