@@ -8,10 +8,11 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Suave.DotLiquid" Version="2.3.0-beta3" />
+    <PackageReference Include="DotLiquid" Version="2.0.262" />
+    <PackageReference Include="Suave.DotLiquid" Version="2.4.1" />
     <PackageReference Include="Dapper" Version="1.50.2" />
     <PackageReference Include="Npgsql" Version="3.2.5" />
-    <PackageReference Include="Suave" Version="2.3.0-beta3" />
+    <PackageReference Include="Suave" Version="2.4.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.4.0" />
   </ItemGroup>
 </Project>
