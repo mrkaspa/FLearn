@@ -9,7 +9,8 @@ type User() =
     member val Email = "" with get, set
 
 let run =
-    let connString = "Host=localhost;Username=mrkaspa;Password=;Database=subs_dev"
+    let connString =
+        "Host=localhost;Username=mrkaspa;Password=;Database=subs_dev"
     use conn = new NpgsqlConnection(connString)
     conn.Open()
     let query = "select first_name, email from auth_user"

@@ -1,5 +1,4 @@
-﻿// Learn more about F# at http://fsharp.org
-
+// Learn more about F# at http://fsharp.org
 open System
 open System.Threading
 open Suave
@@ -14,25 +13,26 @@ type Model =
 
 [<DataContract>]
 type Foo =
-  { [<field: DataMember(Name = "foo")>]
-    foo : string }
+    { [<field:DataMember(Name = "foo")>]
+      foo : string }
 
 [<DataContract>]
 type Bar =
-  { [<field: DataMember(Name = "bar")>]
-    bar : string }
+    { [<field:DataMember(Name = "bar")>]
+      bar : string }
 
 setTemplatesDir "./templates"
 
-let o =
-    { title = "Hello World" }
+let o = { title = "Hello World" }
 
 let app =
-    choose
-        [ GET >=> choose
-            [ path "/" >=> page "my_page.liquid" o ]
-          POST >=> choose
-            [ path "/json" >=> (mapJson (fun (a: Foo) -> { bar = a.foo })) ] ]
+    choose 
+        [ GET >=> choose [ path "/" >=> page "my_page.liquid" o ]
+          
+          POST 
+          >=> choose 
+                  [ path "/json" 
+                    >=> (mapJson (fun (a : Foo) -> { bar = a.foo })) ] ]
 
 [<EntryPoint>]
 let main argv =
