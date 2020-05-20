@@ -16,15 +16,3 @@ let reduci (ls : Listi<int>) =
     ls
     |> mapi
     |> List.sum
-
-let pcmp cmp =
-    match cmp with
-    | GT -> printfn "Great"
-    | EQ -> printfn "Equal"
-    | LT -> printfn "Less"
-
-let parseName (name : string) =
-    let parts = name.Split(' ')
-    let forename = parts.[0]
-    let surname = parts.[1]
-    (forename, surname)

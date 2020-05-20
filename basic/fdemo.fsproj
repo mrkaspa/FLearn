@@ -1,14 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Rec.fs " />
-    <Compile Include="Customer.fs " />
     <Compile Include="Demo.fs " />
-    <Compile Include="Say.fs" />
-    <Compile Include="XPrint.fs " />
     <Compile Include="Program.fs" />
   </ItemGroup>
 </Project>
