@@ -7,12 +7,9 @@ type Cmp =
 
 type Listi<'a> = List<'a>
 
-let mapi (ls : Listi<int>) =
+let mapi (ls: Listi<int>) =
     match ls with
     | [] -> [ -1 ]
     | _ -> (List.map (fun x -> x + 1) ls)
 
-let reduci (ls : Listi<int>) =
-    ls
-    |> mapi
-    |> List.sum
+let reduci (ls: Listi<int>) = ls |> mapi |> List.sum

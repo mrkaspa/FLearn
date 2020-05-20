@@ -10,7 +10,7 @@ let duration tag f =
     let timer = DateTime.Now
     f()
     let now = DateTime.Now
-    printfn "Elapsed Time in %s: %d msecs" tag 
+    printfn "Elapsed Time in %s: %d msecs" tag
         (now.Subtract(timer).Milliseconds)
 
 let execAsync() =
